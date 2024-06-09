@@ -4,6 +4,7 @@ import com.condominios.app.dto.ChamadoCreateDTO;
 import com.condominios.app.model.Chamado;
 import com.condominios.app.repositories.ChamadoRepository;
 import com.condominios.app.service.ChamadoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class ChamadoController {
 
 
     @PostMapping(path = "/criarChamado")
-    public ResponseEntity<Chamado> criarChamado(@RequestBody Chamado chamadoCreateDTO){
+    public ResponseEntity<Chamado> criarChamado(@Valid @RequestBody Chamado chamadoCreateDTO){
         return ResponseEntity.ok(chamadoService.criarChamado(chamadoCreateDTO));
     }
 

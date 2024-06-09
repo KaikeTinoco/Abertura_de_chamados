@@ -3,6 +3,7 @@ package com.condominios.app.controller;
 import com.condominios.app.dto.ManutencaoCreateDTO;
 import com.condominios.app.model.ManutencaoAvulsa;
 import com.condominios.app.service.ManutencaoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class ManutencaoController {
     }
 
     @PostMapping("/cadastroManutencao")
-    public ResponseEntity<ManutencaoAvulsa> criarManutencao(@RequestBody ManutencaoCreateDTO dto){
+    public ResponseEntity<ManutencaoAvulsa> criarManutencao(@Valid @RequestBody ManutencaoCreateDTO dto){
         return ResponseEntity.ok(manutencaoService.criarManutencao(dto));
     }
 }
