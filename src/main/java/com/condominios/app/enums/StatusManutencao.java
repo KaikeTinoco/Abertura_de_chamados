@@ -1,8 +1,8 @@
 package com.condominios.app.enums;
 
 public enum StatusManutencao {
-    ATENDIDO("atendido"),
-    AUSENTE("ausente");
+    ATENDIDO("ATENDIDO"),
+    AUSENTE("AUSENTE");
 
 
     private final String descricao;
