@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@Tag(name = "Chamado")
+@Tag(name = "Chamados")
 public interface ChamadoControllerOpenApi {
     @Operation(summary = "abre um novo chamado")
     ResponseEntity<Chamado> criarChamado(@Valid @RequestBody Chamado chamadoCreateDTO);

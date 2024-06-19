@@ -2,6 +2,7 @@ package com.condominios.app.controller;
 
 import com.condominios.app.dto.ManutencaoCreateDTO;
 import com.condominios.app.model.ManutencaoAvulsa;
+import com.condominios.app.openapi.ManutencaoControllerOpenApi;
 import com.condominios.app.service.ManutencaoService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/manutencoes")
-public class ManutencaoController {
+public class ManutencaoController implements ManutencaoControllerOpenApi {
     private final ManutencaoService manutencaoService;
 
     @Autowired
@@ -23,8 +24,8 @@ public class ManutencaoController {
     }
 
 
-    @GetMapping("/buscaGeral")
     @ApiResponses(value = @ApiResponse(responseCode = "200", description = "busca realizada com sucesso"))
+    @GetMapping("/buscaGeral")
     public ResponseEntity<List<ManutencaoAvulsa>> buscaGeral(){
         return ResponseEntity.ok(manutencaoService.buscaGeral());
     }
